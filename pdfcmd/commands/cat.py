@@ -63,7 +63,7 @@ def main(parser, args):
     handles = {}
     merger = PyPDF2.PdfFileMerger()
     for fname, pages in PyPDF2.parse_filename_page_ranges(args.fileranges):
-        if re.search('^[A-Z]=', fname):
+        if re.search('^[A-Z]=.', fname):
             handle = fname[0]
             fname = fname[2:]
             handles[handle] = fname
