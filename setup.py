@@ -11,7 +11,7 @@ here = Path(__file__).resolve().parent
 
 setup(
     name=name,
-    version='1.0',
+    version='1.1',
     description='Utility to perform commands on PDF files',
     long_description=here.joinpath('README.md').read_text(),
     long_description_content_type='text/markdown',
@@ -23,6 +23,7 @@ setup(
     packages=[module] + [str(d) for d in Path(module).iterdir() if d.is_dir()
                 and not d.name.startswith('_')],
     python_requires='>=3.5',
+    install_requires=['pypdf2'],
     classifiers=[
         'Programming Language :: Python :: 3',
     ],

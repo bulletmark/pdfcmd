@@ -19,8 +19,8 @@ def import_path(path):
 def main():
     'Main code'
     mainparser = argparse.ArgumentParser(description=__doc__)
-    mainparser.set_defaults(func=None)
-    subparser = mainparser.add_subparsers(help='Available commands:')
+    subparser = mainparser.add_subparsers(help='Available commands:',
+            dest='func')
 
     # Iterate over the commands to set up their parsers
     for modfile in (Path(__file__).parent / 'commands').glob('[!_]*.py'):
