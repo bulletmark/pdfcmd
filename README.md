@@ -1,4 +1,6 @@
 ## PDFCMD - Utility to Perform Commands on PDF Files
+[![PyPi](https://img.shields.io/pypi/v/pdfcmd)](https://pypi.org/project/pdfcmd/)
+[![AUR](https://img.shields.io/aur/version/pdfcmd)](https://aur.archlinux.org/packages/pdfcmd/)
 
 This is a Linux command line utility to perform commands on PDF files.
 It uses the [PyPDF2](https://github.com/mstamy2/PyPDF2) library. The
