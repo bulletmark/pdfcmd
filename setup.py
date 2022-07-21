@@ -11,11 +11,11 @@ here = Path(__file__).resolve().parent
 
 setup(
     name=name,
-    version='1.1',
+    version='1.2',
     description='Utility to perform commands on PDF files',
     long_description=here.joinpath('README.md').read_text(),
     long_description_content_type='text/markdown',
-    url='https://github.com/bulletmark/{}'.format(name),
+    url=f'https://github.com/bulletmark/{name}',
     author='Mark Blakeney',
     author_email='mark.blakeney@bullet-systems.net',
     keywords='PDF',
@@ -23,14 +23,14 @@ setup(
     packages=[module] + [str(d) for d in Path(module).iterdir() if d.is_dir()
                 and not d.name.startswith('_')],
     python_requires='>=3.5',
-    install_requires=['pypdf2'],
+    install_requires=['pypdf2>=2.0.0'],
     classifiers=[
         'Programming Language :: Python :: 3',
     ],
     data_files=[
-        ('share/{}'.format(name), ['README.md']),
+        (f'share/{name}', ['README.md']),
     ],
     entry_points={
-        'console_scripts': ['{}={}:__main__.main'.format(name, module)],
+        'console_scripts': [f'{name}={module}:{module}.main'],
     }
 )
