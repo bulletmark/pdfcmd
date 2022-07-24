@@ -11,7 +11,7 @@ here = Path(__file__).resolve().parent
 
 setup(
     name=name,
-    version='1.2',
+    version='1.3',
     description='Utility to perform commands on PDF files',
     long_description=here.joinpath('README.md').read_text(),
     long_description_content_type='text/markdown',

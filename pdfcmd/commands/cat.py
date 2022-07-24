@@ -54,19 +54,14 @@ def init(parser):
     'Called to add arguments to parser at init'
     parser.add_argument('-o', '--outfile', default='-',
             help='output file, default = stdout')
-    parser.add_argument('-H', '--helppage', action='store_true',
-            help='print help page describing page range/slice syntax')
     # Need to parse remaining args ourself because of ranges starting with '-'
     parser.add_argument('fileranges', nargs=argparse.REMAINDER,
             help='Sequence of alternating file names and page ranges (see -H)')
 
+    parser.epilog = HELP.safe_substitute(prog=Path(sys.argv[0]).stem)
+
 def main(parser, args):
     'Called to action this command'
-    if args.helppage:
-        prog = Path(sys.argv[0]).stem
-        print(__doc__ + HELP.safe_substitute(prog=prog))
-        sys.exit()
-
     if not args.fileranges:
         parser.error('Must specify at least one input file')
 

@@ -27,6 +27,7 @@ def main():
         mod = import_path(modfile)
         docstr = mod.__doc__.strip() if mod.__doc__ else None
         parser = subparser.add_parser(modfile.stem, description=docstr,
+                formatter_class=argparse.RawDescriptionHelpFormatter,
                 help=docstr)
 
         if hasattr(mod, 'init'):

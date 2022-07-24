@@ -20,7 +20,7 @@ positional arguments:
     pages           Output list of page labels/numbers, or total number of
                     pages.
 
-optional arguments:
+options:
   -h, --help        show this help message and exit
 ```
 
@@ -33,13 +33,13 @@ Show PDF document information.
 positional arguments:
   file        PDF file
 
-optional arguments:
+options:
   -h, --help  show this help message and exit
 ```
 
 #### `cat` command
 ```
-usage: pdfcmd cat [-h] [-o OUTFILE] [-H] ...
+usage: pdfcmd cat [-h] [-o OUTFILE] ...
 
 Concaternate selected pages of one or more PDF files into a single file.
 
@@ -47,18 +47,11 @@ positional arguments:
   fileranges            Sequence of alternating file names and page ranges
                         (see -H)
 
-optional arguments:
+options:
   -h, --help            show this help message and exit
   -o OUTFILE, --outfile OUTFILE
                         output file, default = stdout
-  -H, --helppage        print help page describing page range/slice syntax
-```
 
-How to specify files and page ranges is described by typing `pdfcmd
-cat -H`, which outputs the following:
-
-```
-Concaternate selected pages of one or more PDF files into a single file.
 Arguments are specified as a sequence of alternating file names and page
 ranges:
 
@@ -85,17 +78,16 @@ the remaining pages from document1.pdf and document2.pdf:
 
   pdfcmd cat -o output.pdf A=document1.pdf 0 B=document2.pdf 0 A 1: B 1:
 
-Remember, page indices start with zero.
-        Page range expression examples:
-            :     all pages.                   -1    last page.
-            22    just the 23rd page.          :-1   all but the last page.
-            0:3   the first three pages.       -2    second-to-last page.
-            :3    the first three pages.       -2:   last two pages.
-            5:    from the sixth page onward.  -3:-1 third & second to last.
-        The third, "stride" or "step" number is also recognized.
-            ::2       0 2 4 ... to the end.    3:0:-1    3 2 1 but not 0.
-            1:10:2    1 3 5 7 9                2::-1     2 1 0.
-            ::-1      all pages in reverse order.
+Page range expression examples (remember, page indices start with zero):
+      :     all pages.                   -1    last page.
+      22    just the 23rd page.          :-1   all but the last page.
+      0:3   the first three pages.       -2    second-to-last page.
+      :3    the first three pages.       -2:   last two pages.
+      5:    from the sixth page onward.  -3:-1 third & second to last.
+  The third, "stride" or "step" number is also recognized.
+      ::2       0 2 4 ... to the end.    3:0:-1    3 2 1 but not 0.
+      1:10:2    1 3 5 7 9                2::-1     2 1 0.
+      ::-1      all pages in reverse order.
 ```
 
 #### `pages` command
@@ -107,7 +99,7 @@ Output list of page labels/numbers, or total number of pages.
 positional arguments:
   file         PDF file
 
-optional arguments:
+options:
   -h, --help   show this help message and exit
   -c, --count  just print the total count of pages
 ```
