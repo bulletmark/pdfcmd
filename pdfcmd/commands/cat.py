@@ -60,10 +60,10 @@ def init(parser):
 
     parser.epilog = HELP.safe_substitute(prog=Path(sys.argv[0]).stem)
 
-def main(parser, args):
+def main(args):
     'Called to action this command'
     if not args.fileranges:
-        parser.error('Must specify at least one input file')
+        args.parser.error('Must specify at least one input file')
 
     handles = {}
     merger = PyPDF2.PdfFileMerger()

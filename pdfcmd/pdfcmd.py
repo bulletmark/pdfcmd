@@ -37,6 +37,7 @@ def main():
                 modfile.stem))
 
         parser.set_defaults(func=mod.main, parser=parser)
+        parser._mainparser = mainparser
 
     args = mainparser.parse_args()
 
@@ -44,7 +45,7 @@ def main():
         mainparser.error('Must specify a command')
 
     # Run the command that the user specified
-    args.func(args.parser, args)
+    args.func(args)
 
 if __name__ == '__main__':
     sys.exit(main())

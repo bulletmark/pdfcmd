@@ -73,7 +73,7 @@ def getpages(pdf):
 
     return labels
 
-def main(parser, args):
+def main(args):
     'Called to action this command'
     pdf = PyPDF2.PdfFileReader(args.file)
     if args.count:

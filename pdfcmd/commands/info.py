@@ -8,7 +8,7 @@ def init(parser):
     'Called to add arguments to parser at init'
     parser.add_argument('file', help='PDF file', type=argparse.FileType('rb'))
 
-def main(parser, args):
+def main(args):
     'Called to action this command'
     inf = PyPDF2.PdfFileReader(args.file).getDocumentInfo()
     for key, val in inf.items():

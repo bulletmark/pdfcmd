@@ -8,20 +8,22 @@ following commands are presently implemented, each as an independent
 [plugin](pdfcmd/commands).
 
 ```
-usage: pdfcmd [-h] {info,cat,pages} ...
+usage: pdfcmd [-h] {info,help,cat,pages} ...
 
 Utility to perform commands on PDF files.
 
 positional arguments:
-  {info,cat,pages}  Available commands:
-    info            Show PDF document information.
-    cat             Concaternate selected pages of one or more PDF files into
-                    a single file.
-    pages           Output list of page labels/numbers, or total number of
-                    pages.
+  {info,help,cat,pages}
+                        Available commands:
+    info                Show PDF document information.
+    help                Show help/usage for this utility.
+    cat                 Concaternate selected pages of one or more PDF files
+                        into a single file.
+    pages               Output list of page labels/numbers, or total number of
+                        pages.
 
 options:
-  -h, --help        show this help message and exit
+  -h, --help            show this help message and exit
 ```
 
 #### `info` command
@@ -32,6 +34,16 @@ Show PDF document information.
 
 positional arguments:
   file        PDF file
+
+options:
+  -h, --help  show this help message and exit
+```
+
+#### `help` command
+```
+usage: pdfcmd help [-h]
+
+Show help/usage for this utility.
 
 options:
   -h, --help  show this help message and exit
