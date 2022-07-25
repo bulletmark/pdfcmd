@@ -57,7 +57,6 @@ Concaternate selected pages of one or more PDF files into a single file.
 
 positional arguments:
   fileranges            Sequence of alternating file names and page ranges
-                        (see -H)
 
 options:
   -h, --help            show this help message and exit

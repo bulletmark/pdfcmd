@@ -56,7 +56,7 @@ def init(parser):
             help='output file, default = stdout')
     # Need to parse remaining args ourself because of ranges starting with '-'
     parser.add_argument('fileranges', nargs=argparse.REMAINDER,
-            help='Sequence of alternating file names and page ranges (see -H)')
+            help='Sequence of alternating file names and page ranges')
 
     parser.epilog = HELP.safe_substitute(prog=Path(sys.argv[0]).stem)
 
