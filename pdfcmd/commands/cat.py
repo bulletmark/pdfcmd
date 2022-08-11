@@ -31,10 +31,10 @@ example:
 
   $prog cat chapter*.pdf >book.pdf
 
-You can also assign a single upper case "handle" to a file at first use
-and then use that handle later as shorthand. For example, output the
-first page from document1.pdf, the first page of document2.pdf, then
-the remaining pages from document1.pdf and document2.pdf:
+You can also assign a single upper case "alias" name to a file at first
+use and then use that alias later as shorthand. For example, output the
+first page from document1.pdf, the first page of document2.pdf, then the
+remaining pages from document1.pdf and document2.pdf:
 
   $prog cat -o output.pdf A=document1.pdf 0 B=document2.pdf 0 A 1: B 1:
 
@@ -65,18 +65,18 @@ def main(args):
     if not args.fileranges:
         args.parser.error('Must specify at least one input file')
 
-    handles = {}
+    aliases = {}
     merger = PyPDF2.PdfFileMerger()
     for fname, pages in PyPDF2.parse_filename_page_ranges(args.fileranges):
         if re.search('^[A-Z]=.', fname):
-            handle = fname[0]
+            alias = fname[0]
             fname = fname[2:]
-            handles[handle] = fname
+            aliases[alias] = fname
         else:
-            fname = handles.get(fname, fname)
+            fname = aliases.get(fname, fname)
 
         if not Path(fname).exists():
-            sys.exit('File "{}" does not exist.'.format(fname))
+            sys.exit(f'File "{fname}" does not exist.')
 
         merger.append(fname, pages=pages)
 

@@ -82,8 +82,8 @@ example:
 
   pdfcmd cat chapter*.pdf >book.pdf
 
-You can also assign a single upper case "handle" to a file at first use
-and then use that handle later as shorthand. For example, output the
+You can also assign a single upper case "alias" to a file at first use
+and then use that alias later as shorthand. For example, output the
 first page from document1.pdf, the first page of document2.pdf, then
 the remaining pages from document1.pdf and document2.pdf:
 
@@ -122,7 +122,7 @@ https://github.com/bulletmark/pdfcmd.
 
 Arch Linux users can install [pdfcmd from the
 AUR](https://aur.archlinux.org/packages/pdfcmd).
-Python 3.5 or later is required. Note [pdfcmd is on
+Python 3.6 or later is required. Note [pdfcmd is on
 PyPI](https://pypi.org/project/pdfcmd/) so just ensure that
 `python3-pip` and `python3-wheel` are installed then type the following
 to install (or upgrade):

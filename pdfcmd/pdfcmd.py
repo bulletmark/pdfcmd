@@ -30,14 +30,15 @@ def main():
                 formatter_class=argparse.RawDescriptionHelpFormatter,
                 help=docstr)
 
+        # Add reference to mainparser in case subcommand needs it
+        parser._mainparser = mainparser
+
         if hasattr(mod, 'init'):
             mod.init(parser)
         if not hasattr(mod, 'main'):
-            mainparser.error('"{}" command must define a main()'.format(
-                modfile.stem))
+            mainparser.error(f'"{modfile.stem}" command must define a main()')
 
         parser.set_defaults(func=mod.main, parser=parser)
-        parser._mainparser = mainparser
 
     args = mainparser.parse_args()
 

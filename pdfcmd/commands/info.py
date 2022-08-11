@@ -14,4 +14,4 @@ def main(args):
     for key, val in inf.items():
         if key.startswith('/'):
             key = key[1:]
-        print('{}: {}'.format(key, val))
+        print(f'{key}: {val}')
