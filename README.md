@@ -7,26 +7,36 @@ It uses the [PyPDF2](https://github.com/mstamy2/PyPDF2) library. The
 following commands are presently implemented, each as an independent
 [plugin](pdfcmd/commands).
 
+The latest documentation and code is available at
+https://github.com/bulletmark/pdfcmd.
+
+## Usage
+
+Type `pdfcmd` or `pdfcmd -h` to view the following usage summary:
+
 ```
 usage: pdfcmd [-h] {info,help,cat,pages} ...
 
 Utility to perform commands on PDF files.
 
-positional arguments:
+options:
+  -h, --help            show this help message and exit
+
+Commands:
   {info,help,cat,pages}
-                        Available commands:
     info                Show PDF document information.
     help                Show help/usage for this utility.
     cat                 Concaternate selected pages of one or more PDF files
                         into a single file.
     pages               Output list of page labels/numbers, or total number of
                         pages.
-
-options:
-  -h, --help            show this help message and exit
 ```
 
-#### `info` command
+Type `pdfcmd <command> -h` to see specific help/usage for any
+individual command:
+
+### Command `info`
+
 ```
 usage: pdfcmd info [-h] file
 
@@ -39,7 +49,8 @@ options:
   -h, --help  show this help message and exit
 ```
 
-#### `help` command
+### Command `help`
+
 ```
 usage: pdfcmd help [-h]
 
@@ -49,7 +60,8 @@ options:
   -h, --help  show this help message and exit
 ```
 
-#### `cat` command
+### Command `cat`
+
 ```
 usage: pdfcmd cat [-h] [-o OUTFILE] ...
 
@@ -82,10 +94,10 @@ example:
 
   pdfcmd cat chapter*.pdf >book.pdf
 
-You can also assign a single upper case "alias" to a file at first use
-and then use that alias later as shorthand. For example, output the
-first page from document1.pdf, the first page of document2.pdf, then
-the remaining pages from document1.pdf and document2.pdf:
+You can also assign a single upper case "alias" name to a file at first
+use and then use that alias later as shorthand. For example, output the
+first page from document1.pdf, the first page of document2.pdf, then the
+remaining pages from document1.pdf and document2.pdf:
 
   pdfcmd cat -o output.pdf A=document1.pdf 0 B=document2.pdf 0 A 1: B 1:
 
@@ -101,7 +113,8 @@ Page range expression examples (remember, page indices start with zero):
       ::-1      all pages in reverse order.
 ```
 
-#### `pages` command
+### Command `pages`
+
 ```
 usage: pdfcmd pages [-h] [-c] file
 
@@ -115,10 +128,7 @@ options:
   -c, --count  just print the total count of pages
 ```
 
-The latest documentation and code is available at
-https://github.com/bulletmark/pdfcmd.
-
-### INSTALLATION
+## INSTALLATION
 
 Arch Linux users can install [pdfcmd from the
 AUR](https://aur.archlinux.org/packages/pdfcmd).
@@ -140,7 +150,7 @@ $ cd pdfcmd
 $ sudo pip3 install -U .
 ```
 
-### UPGRADE
+## UPGRADE
 
 ```sh
 $ cd pdfcmd  # Source dir, as above
@@ -148,13 +158,13 @@ $ git pull
 $ sudo pip3 install -U .
 ```
 
-### REMOVAL
+## REMOVAL
 
 ```sh
 $ sudo pip3 uninstall pdfcmd
 ```
 
-### LICENSE
+## LICENSE
 
 Copyright (C) 2021 Mark Blakeney. This program is distributed under the
 terms of the GNU General Public License.

@@ -19,7 +19,7 @@ def import_path(path):
 def main():
     'Main code'
     mainparser = argparse.ArgumentParser(description=__doc__)
-    subparser = mainparser.add_subparsers(help='Available commands:',
+    subparser = mainparser.add_subparsers(title='Commands',
             dest='func')
 
     # Iterate over the commands to set up their parsers
@@ -43,7 +43,8 @@ def main():
     args = mainparser.parse_args()
 
     if not args.func:
-        mainparser.error('Must specify a command')
+        mainparser.print_help()
+        return
 
     # Run the command that the user specified
     args.func(args)

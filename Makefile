@@ -24,6 +24,9 @@ check:
 	vermin --no-tips -i $(PYNAME)/*.py $(PYNAME)/*/*.py setup.py
 	python3 setup.py check
 
+doc:
+	update-readme-usage -a
+
 clean:
 	@rm -vrf *.egg-info build/ dist/ __pycache__/ \
 	    */__pycache__ */*/__pycache__
