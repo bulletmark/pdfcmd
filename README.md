@@ -3,7 +3,7 @@
 [![AUR](https://img.shields.io/aur/version/pdfcmd)](https://aur.archlinux.org/packages/pdfcmd/)
 
 This is a Linux command line utility to perform commands on PDF files.
-It uses the [PyPDF2](https://github.com/mstamy2/PyPDF2) library. The
+It uses the [pypdf](https://github.com/py-pdf/pypdf) library. The
 following commands are presently implemented, each as an independent
 [plugin](pdfcmd/commands).
 
@@ -12,7 +12,7 @@ https://github.com/bulletmark/pdfcmd.
 
 ## Usage
 
-Type `pdfcmd` or `pdfcmd -h` to view the following usage summary:
+Type `pdfcmd` or `pdfcmd -h` to view the usage summary:
 
 ```
 usage: pdfcmd [-h] {info,help,cat,pages} ...
@@ -142,7 +142,7 @@ $ sudo pip3 install -U pdfcmd
 ```
 
 Alternatively, do the following to install from the source repository.
-Note that the `python-pypdf2` package is required.
+Note that the `python-pypdf` package is required.
 
 ```sh
 $ git clone http://github.com/bulletmark/pdfcmd

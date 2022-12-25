@@ -3,7 +3,7 @@
 # Author: Mark Blakeney, Dec 2019.
 import sys
 import argparse
-import PyPDF2
+import pypdf
 
 def init(parser):
     'Called to add arguments to parser at init'
@@ -36,7 +36,7 @@ def getpages(pdf):
     try:
         nums = pdf.trailer['/Root']['/PageLabels']['/Nums']
     except Exception:
-        return range(1, pdf.getNumPages() + 1)
+        return range(1, len(pdf.pages) + 1)
 
     # At this point we have either the object or the list.
     # Make it a list.
@@ -75,9 +75,9 @@ def getpages(pdf):
 
 def main(args):
     'Called to action this command'
-    pdf = PyPDF2.PdfFileReader(args.file)
+    pdf = pypdf.PdfReader(args.file)
     if args.count:
-        print(pdf.getNumPages())
+        print(len(pdf.pages))
         sys.exit()
     for page in getpages(pdf):
         print(page)

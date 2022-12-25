@@ -2,7 +2,7 @@
 'Show PDF document information.'
 # Author: Mark Blakeney, Dec 2019.
 import argparse
-import PyPDF2
+import pypdf
 
 def init(parser):
     'Called to add arguments to parser at init'
@@ -10,7 +10,7 @@ def init(parser):
 
 def main(args):
     'Called to action this command'
-    inf = PyPDF2.PdfFileReader(args.file).getDocumentInfo()
+    inf = pypdf.PdfReader(args.file).metadata
     for key, val in inf.items():
         if key.startswith('/'):
             key = key[1:]

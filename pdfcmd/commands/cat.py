@@ -6,7 +6,7 @@ import re
 import sys
 import string
 import argparse
-import PyPDF2
+import pypdf
 from pathlib import Path
 
 # flake8: noqa: E122
@@ -66,8 +66,8 @@ def main(args):
         args.parser.error('Must specify at least one input file')
 
     aliases = {}
-    merger = PyPDF2.PdfFileMerger()
-    for fname, pages in PyPDF2.parse_filename_page_ranges(args.fileranges):
+    merger = pypdf.PdfMerger()
+    for fname, pages in pypdf.parse_filename_page_ranges(args.fileranges):
         if re.search('^[A-Z]=.', fname):
             alias = fname[0]
             fname = fname[2:]
