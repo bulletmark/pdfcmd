@@ -63,7 +63,7 @@ options:
 ### Command `cat`
 
 ```
-usage: pdfcmd cat [-h] [-o OUTFILE] ...
+usage: pdfcmd cat [-h] [-o OUTFILE] [-a] ...
 
 Concaternate selected pages of one or more PDF files into a single file.
 
@@ -74,6 +74,7 @@ options:
   -h, --help            show this help message and exit
   -o OUTFILE, --outfile OUTFILE
                         output file, default = stdout
+  -a, --no-aliases      do not use aliases
 
 Arguments are specified as a sequence of alternating file names and page
 ranges:

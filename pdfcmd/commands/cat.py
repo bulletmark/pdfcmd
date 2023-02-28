@@ -54,6 +54,8 @@ def init(parser):
     'Called to add arguments to parser at init'
     parser.add_argument('-o', '--outfile', default='-',
             help='output file, default = stdout')
+    parser.add_argument('-a', '--no-aliases', action='store_true',
+            help='do not use aliases')
     # Need to parse remaining args ourself because of ranges starting with '-'
     parser.add_argument('fileranges', nargs=argparse.REMAINDER,
             help='Sequence of alternating file names and page ranges')
@@ -68,7 +70,7 @@ def main(args):
     aliases = {}
     merger = pypdf.PdfMerger()
     for fname, pages in pypdf.parse_filename_page_ranges(args.fileranges):
-        if re.search('^[A-Z]=.', fname):
+        if re.search('^[A-Z]=.', fname) and not args.no_aliases:
             alias = fname[0]
             fname = fname[2:]
             aliases[alias] = fname
