@@ -21,7 +21,7 @@ setup(
     keywords='PDF',
     license='GPLv3',
     packages=[module] + [str(d) for d in Path(module).iterdir() if d.is_dir()
-                and not d.name.startswith('_')],
+                and d.name[0] not in '._'],
     python_requires='>=3.6',
     install_requires=['pypdf>=3.1.0'],
     classifiers=[
