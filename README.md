@@ -49,17 +49,6 @@ options:
   -h, --help  show this help message and exit
 ```
 
-### Command `help`
-
-```
-usage: pdfcmd help [-h]
-
-Show help/usage for this utility.
-
-options:
-  -h, --help  show this help message and exit
-```
-
 ### Command `cat`
 
 ```
@@ -127,6 +116,17 @@ positional arguments:
 options:
   -h, --help   show this help message and exit
   -c, --count  just print the total count of pages
+```
+
+### Command `help`
+
+```
+usage: pdfcmd help [-h]
+
+Show help/usage for this utility.
+
+options:
+  -h, --help  show this help message and exit
 ```
 
 ## INSTALLATION
