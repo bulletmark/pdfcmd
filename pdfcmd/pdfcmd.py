@@ -7,15 +7,6 @@ import argparse
 import importlib
 from pathlib import Path
 
-def import_path(path):
-    'Import given module path'
-    modname = path.stem.replace('-', '_')
-    spec = importlib.util.spec_from_loader(modname,
-            importlib.machinery.SourceFileLoader(modname, str(path)))
-    module = importlib.util.module_from_spec(spec)
-    spec.loader.exec_module(module)
-    return module
-
 def main():
     'Main code'
     mainparser = argparse.ArgumentParser(description=__doc__)
@@ -23,10 +14,12 @@ def main():
             dest='func')
 
     # Iterate over the commands to set up their parsers
-    for modfile in (Path(__file__).parent / 'commands').glob('[!_]*.py'):
-        mod = import_path(modfile)
+    prog = Path(__file__)
+    for modfile in (prog.parent / 'commands').glob('[!_]*.py'):
+        name = modfile.stem
+        mod = importlib.import_module(f'{prog.stem}.commands.{name}')
         docstr = mod.__doc__.strip() if mod.__doc__ else None
-        parser = subparser.add_parser(modfile.stem, description=docstr,
+        parser = subparser.add_parser(name, description=docstr,
                 formatter_class=argparse.RawDescriptionHelpFormatter,
                 help=docstr)
 
@@ -36,7 +29,7 @@ def main():
         if hasattr(mod, 'init'):
             mod.init(parser)
         if not hasattr(mod, 'main'):
-            mainparser.error(f'"{modfile.stem}" command must define a main()')
+            mainparser.error(f'"{name}" command must define a main()')
 
         parser.set_defaults(func=mod.main, parser=parser)
 
