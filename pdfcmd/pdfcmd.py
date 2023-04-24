@@ -18,8 +18,8 @@ def main():
     for modfile in (prog.parent / 'commands').glob('[!_]*.py'):
         name = modfile.stem
         mod = importlib.import_module(f'{prog.stem}.commands.{name}')
-        docstr = mod.__doc__.strip() if mod.__doc__ else None
-        parser = subparser.add_parser(name, description=docstr,
+        docstr = mod.__doc__.strip().split('\n\n')[0] if mod.__doc__ else None
+        parser = subparser.add_parser(name, description=mod.__doc__,
                 formatter_class=argparse.RawDescriptionHelpFormatter,
                 help=docstr)
 
@@ -40,7 +40,7 @@ def main():
         return
 
     # Run the command that the user specified
-    args.func(args)
+    return args.func(args)
 
 if __name__ == '__main__':
     sys.exit(main())
