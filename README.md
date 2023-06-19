@@ -132,37 +132,19 @@ options:
 ## INSTALLATION
 
 Arch Linux users can install [pdfcmd from the
-AUR](https://aur.archlinux.org/packages/pdfcmd).
-Python 3.6 or later is required. Note [pdfcmd is on
-PyPI](https://pypi.org/project/pdfcmd/) so just ensure that
-`python3-pip` and `python3-wheel` are installed then type the following
-to install (or upgrade):
+AUR](https://aur.archlinux.org/packages/pdfcmd). Python 3.6 or later is
+required. Note [pdfcmd is on PyPI](https://pypi.org/project/pdfcmd/) so
+just ensure that [`pipx`](https://pypa.github.io/pipx/) is installed
+then type the following:
 
 ```
-$ sudo pip3 install -U pdfcmd
+$ pipx install pdfcmd
 ```
 
-Alternatively, do the following to install from the source repository.
-Note that the `python-pypdf` package is required.
+To upgrade:
 
-```sh
-$ git clone http://github.com/bulletmark/pdfcmd
-$ cd pdfcmd
-$ sudo pip3 install -U .
 ```
-
-## UPGRADE
-
-```sh
-$ cd pdfcmd  # Source dir, as above
-$ git pull
-$ sudo pip3 install -U .
-```
-
-## REMOVAL
-
-```sh
-$ sudo pip3 uninstall pdfcmd
+$ pipx upgrade pdfcmd
 ```
 
 ## LICENSE
