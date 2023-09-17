@@ -15,7 +15,7 @@ https://github.com/bulletmark/pdfcmd.
 Type `pdfcmd` or `pdfcmd -h` to view the usage summary:
 
 ```
-usage: pdfcmd [-h] {info,help,cat,pages} ...
+usage: pdfcmd [-h] {cat,help,info,pages} ...
 
 Utility to perform commands on PDF files.
 
@@ -23,31 +23,17 @@ options:
   -h, --help            show this help message and exit
 
 Commands:
-  {info,help,cat,pages}
-    info                Show PDF document information.
-    help                Show help/usage for this utility.
+  {cat,help,info,pages}
     cat                 Concaternate selected pages of one or more PDF files
                         into a single file.
+    help                Show help/usage for this utility.
+    info                Show PDF document information.
     pages               Output list of page labels/numbers, or total number of
                         pages.
 ```
 
 Type `pdfcmd <command> -h` to see specific help/usage for any
 individual command:
-
-### Command `info`
-
-```
-usage: pdfcmd info [-h] file
-
-Show PDF document information.
-
-positional arguments:
-  file        PDF file
-
-options:
-  -h, --help  show this help message and exit
-```
 
 ### Command `cat`
 
@@ -101,6 +87,20 @@ Page range expression examples (remember, page indices start with zero):
       ::2       0 2 4 ... to the end.    3:0:-1    3 2 1 but not 0.
       1:10:2    1 3 5 7 9                2::-1     2 1 0.
       ::-1      all pages in reverse order.
+```
+
+### Command `info`
+
+```
+usage: pdfcmd info [-h] file
+
+Show PDF document information.
+
+positional arguments:
+  file        PDF file
+
+options:
+  -h, --help  show this help message and exit
 ```
 
 ### Command `pages`
