@@ -129,7 +129,7 @@ options:
   -h, --help  show this help message and exit
 ```
 
-## INSTALLATION
+## Installation
 
 Arch Linux users can install [pdfcmd from the
 AUR](https://aur.archlinux.org/packages/pdfcmd). Python 3.6 or later is
@@ -146,6 +146,15 @@ To upgrade:
 ```
 $ pipx upgrade pdfcmd
 ```
+
+## Command Line Tab Completion
+
+Command line shell [tab
+completion](https://en.wikipedia.org/wiki/Command-line_completion) is
+automatically enabled on `pdfcmd` commands and options using
+[`argcomplete`](https://github.com/kislyuk/argcomplete). You may need to
+first (once-only) [activate argcomplete global
+completion](https://github.com/kislyuk/argcomplete#global-completion).
 
 ## LICENSE
 

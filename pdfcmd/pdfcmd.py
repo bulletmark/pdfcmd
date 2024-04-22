@@ -1,11 +1,14 @@
 #!/usr/bin/python3
+# PYTHON_ARGCOMPLETE_OK
 'Utility to perform commands on PDF files.'
 # Author: Mark Blakeney, Dec 2019.
 
-import sys
 import argparse
 import importlib
+import sys
 from pathlib import Path
+
+import argcomplete
 
 def main():
     'Main code'
@@ -32,6 +35,9 @@ def main():
             mainparser.error(f'"{name}" command must define a main()')
 
         parser.set_defaults(func=mod.main, parser=parser)
+
+    # Command arguments are now defined, so we can set up argcomplete
+    argcomplete.autocomplete(mainparser)
 
     args = mainparser.parse_args()
 
