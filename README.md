@@ -156,7 +156,7 @@ automatically enabled on `pdfcmd` commands and options using
 first (once-only) [activate argcomplete global
 completion](https://github.com/kislyuk/argcomplete#global-completion).
 
-## LICENSE
+## License
 
 Copyright (C) 2021 Mark Blakeney. This program is distributed under the
 terms of the GNU General Public License.
