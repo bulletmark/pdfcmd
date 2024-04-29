@@ -70,12 +70,12 @@ example:
 
   pdfcmd cat chapter*.pdf >book.pdf
 
-You can also assign a single upper case "alias" name to a file at first
-use and then use that alias later as shorthand. For example, output the
+You can also assign a single "alias" character to a file at first use
+and then use that alias later as shorthand. For example, output the
 first page from document1.pdf, the first page of document2.pdf, then the
 remaining pages from document1.pdf and document2.pdf:
 
-  pdfcmd cat -o output.pdf A=document1.pdf 0 B=document2.pdf 0 A 1: B 1:
+  pdfcmd cat -o output.pdf a=document1.pdf 0 b=document2.pdf 0 a 1: b 1:
 
 Page range expression examples (remember, page indices start with zero):
       :     all pages.                   -1    last page.
