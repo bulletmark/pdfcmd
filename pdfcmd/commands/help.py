@@ -1,5 +1,8 @@
 #!/usr/bin/python3
 'Show help/usage for this utility.'
+from __future__ import annotations
 
-def main(args):
+from argparse import Namespace
+
+def main(args: Namespace) -> str | None:
     args.parser._mainparser.print_help()

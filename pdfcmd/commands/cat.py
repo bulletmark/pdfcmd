@@ -1,13 +1,16 @@
 #!/usr/bin/python3
 'Concaternate selected pages of one or more PDF files into a single file.'
 # Author: Mark Blakeney, Dec 2019.
+from __future__ import annotations
+
 import os
 import re
-import sys
 import string
-import argparse
-import pypdf
+import sys
+from argparse import REMAINDER, ArgumentParser, Namespace
 from pathlib import Path
+
+import pypdf
 
 # flake8: noqa: E122
 HELP = string.Template(\
@@ -50,19 +53,19 @@ Page range expression examples (remember, page indices start with zero):
       ::-1      all pages in reverse order.
 ''')
 
-def init(parser):
+def init(parser: ArgumentParser) -> None:
     'Called to add arguments to parser at init'
     parser.add_argument('-o', '--outfile', default='-',
             help='output file, default = stdout')
     parser.add_argument('-a', '--no-aliases', action='store_true',
             help='do not use aliases')
     # Need to parse remaining args ourself because of ranges starting with '-'
-    parser.add_argument('fileranges', nargs=argparse.REMAINDER,
+    parser.add_argument('fileranges', nargs=REMAINDER,
             help='Sequence of alternating file names and page ranges')
 
     parser.epilog = HELP.safe_substitute(prog=Path(sys.argv[0]).stem)
 
-def main(args):
+def main(args: Namespace) -> str | None:
     'Called to action this command'
     if not args.fileranges:
         args.parser.error('Must specify at least one input file')

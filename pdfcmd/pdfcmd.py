@@ -2,6 +2,7 @@
 # PYTHON_ARGCOMPLETE_OK
 'Utility to perform commands on PDF files.'
 # Author: Mark Blakeney, Dec 2019.
+from __future__ import annotations
 
 import argparse
 import importlib
@@ -10,7 +11,7 @@ from pathlib import Path
 
 import argcomplete
 
-def main():
+def main() -> str | None:
     'Main code'
     mainparser = argparse.ArgumentParser(description=__doc__)
     subparser = mainparser.add_subparsers(title='Commands',
@@ -27,7 +28,7 @@ def main():
                 help=docstr)
 
         # Add reference to mainparser in case subcommand needs it
-        parser._mainparser = mainparser
+        parser._mainparser = mainparser  # type: ignore
 
         if hasattr(mod, 'init'):
             mod.init(parser)
@@ -43,7 +44,7 @@ def main():
 
     if not args.func:
         mainparser.print_help()
-        return
+        return None
 
     # Run the command that the user specified
     return args.func(args)
