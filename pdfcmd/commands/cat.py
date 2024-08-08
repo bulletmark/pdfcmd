@@ -41,6 +41,8 @@ remaining pages from document1.pdf and document2.pdf:
 
   $prog cat -o output.pdf a=document1.pdf 0 b=document2.pdf 0 a 1: b 1:
 
+The alias can be any single lower or upper case letter.
+
 Page range expression examples (remember, page indices start with zero):
       :     all pages.                   -1    last page.
       22    just the 23rd page.          :-1   all but the last page.
