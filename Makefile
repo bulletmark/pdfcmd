@@ -3,7 +3,6 @@ PYNAME = $(subst -,_,$(NAME))
 
 check:
 	ruff check $(NAME)/*.py $(NAME)/commands/*.py
-	flake8 $(NAME)/*.py $(NAME)/commands/*.py
 	mypy $(NAME)/*.py $(NAME)/commands/*.py
 	pyright $(NAME)/*.py $(NAME)/commands/*.py
 	vermin -vv --exclude importlib.metadata --no-tips -i $(NAME)/*.py $(NAME)/commands/*.py
