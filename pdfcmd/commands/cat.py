@@ -73,7 +73,7 @@ def main(args: Namespace) -> str | None:
         args.parser.error('Must specify at least one input file')
 
     aliases = {}
-    merger = pypdf.PdfMerger()
+    merger = pypdf.PdfWriter()
     for fname, pages in pypdf.parse_filename_page_ranges(args.fileranges):
         if re.search('^[A-Za-z]=.', fname) and not args.no_aliases:
             alias = fname[0]
