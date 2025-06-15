@@ -136,7 +136,7 @@ options:
 Arch Linux users can install [pdfcmd from the
 AUR](https://aur.archlinux.org/packages/pdfcmd). Python 3.8 or later is
 required. Note [pdfcmd is on PyPI](https://pypi.org/project/pdfcmd/) so
-just ensure that [`pipx`](https://pypa.github.io/pipx/) is installed
+just ensure that [`pipx`](https://pipx.pypa.io/stable/) is installed
 then type the following:
 
 ```
